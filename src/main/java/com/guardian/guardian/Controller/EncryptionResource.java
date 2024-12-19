@@ -7,15 +7,20 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @RestController
-@Component
 public class EncryptionResource {
 
-    @Autowired
+
     private EncryptionService encryptionService;
+
+    public EncryptionResource( EncryptionService encryptionService) {
+        super();
+        this.encryptionService = encryptionService;
+    }
     String publicKey= "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEHKj7xq0cB0pORTMnvR0vDCaADA5qm0BjG9TPAjLtwDSaxPl5lU3QUzF2+ZZdroRIIO1xEvGad2vElN2zSSTmUQ==";
 
-    @PostMapping("/create-token")
+    @RequestMapping(value="/create-token",method=RequestMethod.POST)
     public String encrypt(@RequestBody CreditCard creditCard) {
         try {
             return encryptionService.createToken(creditCard, publicKey);
