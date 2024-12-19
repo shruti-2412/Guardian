@@ -5,29 +5,24 @@ import com.guardian.guardian.Util.ECCEncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.crypto.Cipher;
-import java.security.KeyFactory;
-import java.security.PublicKey;
-import java.security.Security;
-import java.security.spec.X509EncodedKeySpec;
-import java.util.Base64;
+import java.security.KeyPair;
 
 @Component
 public class EncryptionService {
 
     @Autowired
     private ECCEncryptionUtil eccEncryptionUtil;
-    public String createToken(CreditCard creditCard, String publicKeyStr) throws Exception {
 
-        String data= creditCard.toString();
+    public String createToken(CreditCard creditCard) throws Exception {
 
-        try {
-            PublicKey publicKey = ECCEncryptionUtil.getPublicKeyFromString(publicKeyStr);
-            byte[] encryptedData = ECCEncryptionUtil.encrypt(data, publicKey);
-            return Base64.getEncoder().encodeToString(encryptedData);
-        } catch (Exception e) {
-            return "Error: " + e.getMessage();
-        }
+        String originalData= creditCard.toString();
+        KeyPair keyPair=eccEncryptionUtil.generateECCKeyPair();
+        String encryptedData=eccEncryptionUtil.encrypt(originalData, keyPair.getPublic());
+        String decryptedData=eccEncryptionUtil.decrypt(encryptedData, keyPair.getPrivate());
+        System.out.println("Original Data: " + originalData);
+        System.out.println("Encrypted Data: " + encryptedData);
+        System.out.println("Decrypted Data: " + decryptedData);
+        return encryptedData;
 
 
     }
