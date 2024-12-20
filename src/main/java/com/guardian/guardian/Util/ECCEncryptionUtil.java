@@ -37,4 +37,16 @@ public class ECCEncryptionUtil {
         return new String(decryptedData);
     }
 
+
+    public static String getPrivateKeyAsString(PrivateKey privateKey) {
+        return Base64.getEncoder().encodeToString(privateKey.getEncoded());
+    }
+
+    public static String getPublicKeyAsString(PublicKey publicKey) {
+        return Base64.getEncoder().encodeToString(publicKey.getEncoded());
+    }
+
+
+
+
 }

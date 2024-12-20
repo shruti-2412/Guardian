@@ -24,6 +24,10 @@ public class CreditCard {
         this.publicKey = publicKey;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "CreditCard{" +

@@ -1,12 +1,15 @@
 package com.guardian.guardian.UserDb;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String name;
     private String privateKey;
@@ -23,6 +26,16 @@ public class User {
         this.publicKey = publicKey;
         this.creditCardToken = creditCardToken;
     }
+
+    public User(String name, String privateKey, String publicKey, String creditCardToken) {
+        this.id = id;
+        this.name = name;
+        this.privateKey = privateKey;
+        this.publicKey = publicKey;
+        this.creditCardToken = creditCardToken;
+    }
+
+
 
     public long getId() {
         return id;
