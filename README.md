@@ -2,7 +2,6 @@
 
 ### Prerequisites
 - Java JDK 8 or later
-- Maven
 - IntelliJ IDE
 - Git Bash
 
@@ -34,6 +33,7 @@
 5. **Access the Application**:  
    Open your web browser and navigate to `http://localhost:8080` to access the application.
 
+   
 ### Lombok Dependency issue (request params are null)
 
 If you are facing an issue with the Lombok library check if the following steps are completed in the IntelliJ
