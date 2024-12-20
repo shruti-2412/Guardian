@@ -1,7 +1,8 @@
 package com.guardian.guardian.Domain;
 
+import lombok.Data;
 
-
+@Data
 public class CreditCard {
     private String name;
     private String cardNo;
@@ -20,54 +21,6 @@ public class CreditCard {
         this.issueDate = issueDate;
         this.expiryDate = expiryDate;
         this.cvv = cvv;
-        this.publicKey = publicKey;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCardNo() {
-        return cardNo;
-    }
-
-    public void setCardNo(String cardNo) {
-        this.cardNo = cardNo;
-    }
-
-    public String getIssueDate() {
-        return issueDate;
-    }
-
-    public void setIssueDate(String issueDate) {
-        this.issueDate = issueDate;
-    }
-
-    public String getExpiryDate() {
-        return expiryDate;
-    }
-
-    public void setExpiryDate(String expiryDate) {
-        this.expiryDate = expiryDate;
-    }
-
-    public String getCvv() {
-        return cvv;
-    }
-
-    public void setCvv(String cvv) {
-        this.cvv = cvv;
-    }
-
-    public String getPublicKey() {
-        return publicKey;
-    }
-
-    public void setPublicKey(String publicKey) {
         this.publicKey = publicKey;
     }
 
