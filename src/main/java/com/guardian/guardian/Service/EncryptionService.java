@@ -19,6 +19,7 @@ public class EncryptionService {
         KeyPair keyPair= ECCEncryptionUtil.generateECCKeyPair();
         String encryptedData= ECCEncryptionUtil.encrypt(originalData, keyPair.getPublic());
         String decryptedData= ECCEncryptionUtil.decrypt(encryptedData, keyPair.getPrivate());
+        //save it into the database
         System.out.println("Original Data: " + originalData);
         System.out.println("Encrypted Data: " + encryptedData);
         System.out.println("Decrypted Data: " + decryptedData);
