@@ -16,14 +16,12 @@ public class EncryptionService {
     public String createToken(CreditCard creditCard) throws Exception {
 
         String originalData= creditCard.toString();
-        KeyPair keyPair=eccEncryptionUtil.generateECCKeyPair();
-        String encryptedData=eccEncryptionUtil.encrypt(originalData, keyPair.getPublic());
-        String decryptedData=eccEncryptionUtil.decrypt(encryptedData, keyPair.getPrivate());
+        KeyPair keyPair= ECCEncryptionUtil.generateECCKeyPair();
+        String encryptedData= ECCEncryptionUtil.encrypt(originalData, keyPair.getPublic());
+        String decryptedData= ECCEncryptionUtil.decrypt(encryptedData, keyPair.getPrivate());
         System.out.println("Original Data: " + originalData);
         System.out.println("Encrypted Data: " + encryptedData);
         System.out.println("Decrypted Data: " + decryptedData);
         return encryptedData;
-
-
     }
 }

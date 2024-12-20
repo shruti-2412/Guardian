@@ -9,7 +9,7 @@ public class Wallet {
     // used for encryption/verification
     private PublicKey publicKey;
 
-    //usde for decryption/signing
+    //used for decryption/signing
     private PrivateKey privateKey;
 
     public Wallet() throws InvalidAlgorithmParameterException, NoSuchAlgorithmException, NoSuchProviderException {

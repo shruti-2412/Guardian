@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class EncryptionResource {
 
-
-    private EncryptionService encryptionService;
+    private final EncryptionService encryptionService;
 
     public EncryptionResource( EncryptionService encryptionService) {
         super();
@@ -22,7 +21,6 @@ public class EncryptionResource {
     @RequestMapping(value="/create-token",method=RequestMethod.POST)
     public String encrypt(@RequestBody CreditCard creditCard) {
         try {
-
             return encryptionService.createToken(creditCard);
         } catch (Exception e) {
             return "Error: " + e.getMessage(); }
