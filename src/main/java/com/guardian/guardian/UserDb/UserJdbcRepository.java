@@ -16,7 +16,7 @@ public class UserJdbcRepository {
     private static String SELECT_QUERY =
             """
                 SELECT * FROM `user` 
-                WHERE id = ?)
+                WHERE id = ?;
              """;
 
     public void insert(User user) {

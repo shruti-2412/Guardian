@@ -33,16 +33,16 @@ public class EncryptionService {
 
         String encryptedData= ECCEncryptionUtil.encrypt(originalData, keyPair.getPublic());
         userRepository.insert(new User(creditCard.getName(),privateKeyStr,publicKeyStr,encryptedData));
-//        User user=userRepository.findById(0);
-//        byte[] privateKeyBytes = Base64.getDecoder().decode(user.getPrivateKey());
-//        byte[] publicKeyBytes = Base64.getDecoder().decode(user.getPublicKey());
-//
-//        // Recreate the key pair from bytes (example only, adjust for your key type)
-//        PrivateKey privateKey = KeyFactory.getInstance("EC").generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes));
-//        PublicKey publicKey = KeyFactory.getInstance("EC").generatePublic(new X509EncodedKeySpec(publicKeyBytes));
+        User user=userRepository.findById(2);
+        byte[] privateKeyBytes = Base64.getDecoder().decode(user.getPrivateKey());
+        byte[] publicKeyBytes = Base64.getDecoder().decode(user.getPublicKey());
 
-        String decryptedData= ECCEncryptionUtil.decrypt(encryptedData, keyPair.getPrivate());
-//        String decryptedData= ECCEncryptionUtil.decrypt(encryptedData, privateKey);
+        // Recreate the key pair from bytes (example only, adjust for your key type)
+        PrivateKey privateKey = KeyFactory.getInstance("EC").generatePrivate(new PKCS8EncodedKeySpec(privateKeyBytes));
+        PublicKey publicKey = KeyFactory.getInstance("EC").generatePublic(new X509EncodedKeySpec(publicKeyBytes));
+
+//        String decryptedData= ECCEncryptionUtil.decrypt(encryptedData, keyPair.getPrivate());
+        String decryptedData= ECCEncryptionUtil.decrypt(encryptedData, privateKey);
 
         //save it into the database
         System.out.println("Original Data: " + originalData);
