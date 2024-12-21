@@ -1,4 +1,4 @@
-package com.guardian.guardian.UserDb;
+package com.guardian.guardian.DAO.User;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

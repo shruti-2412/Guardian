@@ -1,8 +1,8 @@
 package com.guardian.guardian.Service;
 
 import com.guardian.guardian.Domain.CreditCard;
-import com.guardian.guardian.UserDb.User;
-import com.guardian.guardian.UserDb.UserJdbcRepository;
+import com.guardian.guardian.DAO.User.User;
+import com.guardian.guardian.DAO.User.UserJdbcRepository;
 import com.guardian.guardian.Util.ECCEncryptionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
