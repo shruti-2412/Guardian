@@ -12,7 +12,7 @@ public class UserCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        userRepository.insert(new User(1,"Evanston","ufhiewbfbef","bdsgfubewgbewi","fdbfk"));
+        userRepository.insert(new User("Evanston","ufhiewbfbef","bdsgfubewgbewi","fdbfk"));
 
     }
 }

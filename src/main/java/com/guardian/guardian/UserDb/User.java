@@ -28,7 +28,6 @@ public class User {
     }
 
     public User(String name, String privateKey, String publicKey, String creditCardToken) {
-        this.id = id;
         this.name = name;
         this.privateKey = privateKey;
         this.publicKey = publicKey;
