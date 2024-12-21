@@ -14,6 +14,8 @@ public class VerificationService {
         KeyPair keyPairOriginal= ECCEncryptionUtil.generateECCKeyPair();
         byte[] signatureOriginal = ECCVerificationUtil.sign(keyPairOriginal.getPrivate(), data);
 
+        System.out.println("Data: " + data);
+
         System.out.println("Signing with correct private key: " );
         System.out.println("Signature:" + signatureOriginal);
         System.out.println("Verfiying data is sent from correct source " + ECCVerificationUtil.verify(keyPairOriginal.getPublic(), data,signatureOriginal));

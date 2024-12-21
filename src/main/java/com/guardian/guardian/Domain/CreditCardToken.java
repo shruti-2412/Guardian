@@ -11,6 +11,7 @@ public class CreditCardToken {
     }
 
     public CreditCardToken(String encryptedData, String bankId, String bankName, String bankPubKey) {
+        super();
         this.encryptedData = encryptedData;
         this.bankId = bankId;
         this.bankName = bankName;
